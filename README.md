@@ -17,6 +17,10 @@ A clean, role-based financial records management backend built with **FastAPI**,
 
 ---
 
+## 🌍 Live API Documentation
+
+[https://finance-tracker-olzz.onrender.com/docs]
+
 ## 📁 Project Structure
 
 ```
