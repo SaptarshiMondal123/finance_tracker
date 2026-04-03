@@ -21,6 +21,8 @@ A clean, role-based financial records management backend built with **FastAPI**,
 
 [https://finance-tracker-olzz.onrender.com/docs]
 
+---
+
 ## 📁 Project Structure
 
 ```
@@ -184,6 +186,23 @@ Tests cover:
 - Filter and pagination
 - Summary access control
 - CSV and JSON export
+
+---
+
+## 🔐 Security Considerations
+
+- JWT tokens expire in 60 minutes (configurable for production)
+- Passwords are hashed using bcrypt
+- Role-based access enforced via dependency injection
+
+---
+
+## ⚠️ Known Limitations & Edge Cases
+
+- Role assignment is open during registration (should be restricted in production)
+- No rate limiting → potential vulnerability to brute-force attacks
+- Hard deletes instead of soft deletes
+- SQLite may not scale under high concurrency
 
 ---
 
