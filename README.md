@@ -47,7 +47,7 @@ finance_tracker/
 ### 1. Clone and install dependencies
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/SaptarshiMondal123/finance_tracker.git
 cd finance_tracker
 pip install -r requirements.txt
 ```
