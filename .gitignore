@@ -1,0 +1,43 @@
+# Environments
+venv/
+env/
+.venv/
+ENV/
+
+# Local environment files (may contain secrets)
+.env
+.env.*
+!.env.example
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Databases
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
