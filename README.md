@@ -191,28 +191,28 @@ Tests cover:
 
 ## 🔐 Security Considerations
 
-- JWT tokens expire in 60 minutes (configurable for production)
-- Passwords are hashed using bcrypt
-- Role-based access enforced via dependency injection
+- **Authentication:** JWT tokens expire in 60 minutes (configurable; refresh strategies can be added in production).
+- **Password Safety:** Passwords are securely hashed using bcrypt.
+- **Authorization:** Role-based access is strictly enforced via FastAPI dependency injection at the route level.
 
 ---
 
-## ⚠️ Known Limitations & Edge Cases
+## 🚀 Future Improvements (Product Roadmap)
 
-- Role assignment is open during registration (should be restricted in production)
-- No rate limiting → potential vulnerability to brute-force attacks
-- Hard deletes instead of soft deletes
-- SQLite may not scale under high concurrency
+While this project is fully functional for its current scope, the following features are planned for a production-scale release:
+
+- **Strict Role Escalation:** Restrict role assignment during registration and implement admin-only approval workflows.
+- **Rate Limiting:** Add request throttling to prevent brute-force attacks on auth endpoints.
+- **Audit Trails:** Transition from hard deletes to soft deletes to maintain strict financial audit logs.
+- **Database Scaling:** Migrate from SQLite to PostgreSQL to handle high-concurrency writes.
+- **Advanced Auth:** Add refresh tokens and centralized session management.
 
 ---
 
 ## 📝 Assumptions Made
 
-1. **Transactions are owned by users** — a viewer can only see their own; admins see all.
-2. **Role is set at registration** — in production this would be admin-assigned only.
-3. **JWT expiry is 60 minutes** — configurable in `auth.py`.
-4. **SQLite is sufficient** for this scope; swapping to PostgreSQL requires only changing `DATABASE_URL` in `database.py`.
-5. **Soft delete not implemented** — deletions are hard deletes for simplicity.
+1. **Data Ownership:** Transactions are strictly owned by users. A `viewer` or `analyst` can only access their own records, while an `admin` has global access.
+2. **Database Scope:** SQLite was chosen for ease of evaluation and local testing. The ORM structure allows for an instant swap to PostgreSQL by simply updating the `DATABASE_URL` in `database.py`.
 
 ---
 
